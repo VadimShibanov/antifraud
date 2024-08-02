@@ -1,0 +1,26 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /api/anti-fraud
+management:
+  server:
+    port: 8186
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres        # user
+    password: secretpassword    # password
+  liquibase:
+    default-schema: anti_fraud
+    change-log: db/changelog/db.changelog-master.yaml
+    enabled: true
+    drop-first: false
+  application:
+    name: anti-fraud-app
